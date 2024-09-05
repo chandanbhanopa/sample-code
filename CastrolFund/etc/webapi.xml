@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Alpine_CoopFund
+ *
+ * @copyright Copyright (c) 2021 Alpine Consulting, Inc (www.alpineinc.com)
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route method="GET" url="/V1/castrolfunds/update-initial-balance">
+        <service class="Helm\CastrolFund\Api\CastrolFundInterface" method="updateFundsInQuote"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route method="GET" url="/V1/castrolfunds/get-balance">
+        <service class="Helm\CastrolFund\Api\CastrolFundInterface" method="getInitailFunds"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route method="GET" url="/V1/castrolfunds/apply">
+        <service class="Helm\CastrolFund\Api\CastrolFundInterface" method="apply"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route method="GET" url="/V1/castrolfunds/cancel">
+        <service class="Helm\CastrolFund\Api\CastrolFundInterface" method="cancel"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

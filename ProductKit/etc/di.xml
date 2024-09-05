@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--Override Product Model-->
+    <!-- <preference for="Magento\Catalog\Model\Product" type="Helm\ProductKit\Model\Product" /> -->
+    <type name="Magento\Catalog\Model\Product\LinkTypeProvider">
+        <arguments>
+            <argument name="linkTypes" xsi:type="array">
+                <item name="customlinked" xsi:type="const">Helm\ProductKit\Model\Product\Link::LINK_TYPE_CUSTOMLINKED</item>
+            </argument>
+        </arguments>
+    </type>
+    
+    <type name="Magento\Catalog\Model\ProductLink\CollectionProvider">
+        <arguments>
+            <argument name="providers" xsi:type="array">
+                <item name="customlinked" xsi:type="object">Helm\ProductKit\Model\ProductLink\CollectionProvider\Customlinked</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!--Check product quantity for child-->
+    <type name="Magento\Checkout\Model\Cart">
+        <plugin name="check_stock_plugin" type="Helm\ProductKit\Plugin\AddChildProductToCart"/>
+    </type>
+
+
+    <!-- Remove item -->
+    <type name="Magento\Checkout\Model\Cart">
+        <plugin name="remove_item" type="Helm\ProductKit\Plugin\ProductKit\RemoveItem"/>
+    </type>
+
+    <!-- Update Item from product detail page -->
+     <type name="Magento\Checkout\Model\Cart">
+        <plugin name="update_cart" type="Helm\ProductKit\Plugin\ProductKit\UpdateItem" sortOrder="999" disabled="false"  />
+    </type>
+    <type name="Magento\Checkout\Model\Cart"> -->
+        <!-- When customer click on update cart button on cart page then this plugin will be called-->
+        <plugin name="update_parent_product" type="Helm\ProductKit\Plugin\ProductKit\UpdateCartItem"/>
+    </type>
+</config>

@@ -1,0 +1,27 @@
+<?php
+
+/** @var \Magento\Framework\View\Element\Template $block */
+if ($block->getViewModel() && $block->getViewModel()->isCustomerAllowedToUseFunds()) :
+    $viewModel = $block->getViewModel();
+    $headerTitle = $viewModel->getCastrolHeaderTitle();
+    ?>
+<div class="top-container castrolfunds">
+    <div id="castrol-fund-balance" data-bind="scope: 'castrol-funds'">
+        <!-- ko template:getTemplate() --><!-- /ko -->
+    </div>
+</div>
+<script type="text/x-magento-init">
+{
+    "#castrol-fund-balance": {
+        "Magento_Ui/js/core/app": {
+            "components":{
+                "castrol-funds":{
+                    "component":"Helm_CastrolFund/js/view/castrol-funds",
+                    "hederTitle": "<?=/* @noEscape */ $headerTitle?>"
+                }
+            }
+        }    
+    }
+}
+</script>
+<?php endif; ?>

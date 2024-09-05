@@ -1,0 +1,70 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php
+$product = $block->getProduct();
+$helper = $this->helper(Helm\ProductKit\Helper\Data::class);
+$childProducts = $helper->filterChildProducts($product);
+$productKitProducts = [];
+
+?>
+<?php if ($helper->isEnable()) : ?>
+    <?php if (count($childProducts)) { ?>
+        <div class="child-products-kit">
+            <h3><?=$escaper->escapeHtml(__("List of child products"))?></h3>
+            <div class="child-product-list">
+                <?php foreach ($childProducts as $childProduct) : ?>
+                    <?php
+                    $productModel = $helper->getProductData($childProduct['id']);
+                    $finalPrice = $productModel->getPriceInfo()->getPrice('final_price')->getValue();
+                    ?>
+                    <?php $stockStatus = $helper->checkStock($childProduct['id'])->getIsInStock() ? "Yes" : "No"; ?>
+                    <div class="child-product-list_product" title="<?="Status: ".$block->escapeHtml($stockStatus).", Available Qty :".$block->escapeHtml($helper->checkStock($childProduct['id'])->getQty());?>">
+                    <?php $productKitProducts[] = $childProduct['id']; ?>
+                        <div class="left">
+                            <img src="<?= $block->escapeHtmlAttr($childProduct['thumbnail']);?>" />
+                        </div>
+                        <div class="right">
+                            <span><strong><?= $block->escapeHtml(__('Name')) ?> : </strong><?=$block->escapeHtml($childProduct['name']) ?></span>
+                            <span><strong><?= $block->escapeHtml(__('SKU')) ?> : </strong><?=$block->escapeHtml($childProduct['sku']) ?></span>
+                            <span>
+                                <strong>
+                                    <?= $block->escapeHtml(__('Quantity')) ?> : 
+                                </strong>
+                                <span ><?=$block->escapeHtml($childProduct['quantity']) ?></span>
+                            </span>
+                            <span>
+                                <strong>
+                                    <?= $block->escapeHtml(__('Price')) ?> : 
+                                </strong>
+                                <?=$block->escapeHtml($finalPrice); ?>
+                            </span>
+                            <span>
+                                <strong>
+                                    <?= $block->escapeHtml(__('In Stock')) ?> : 
+                                </strong>
+                                    <?=$block->escapeHtml($stockStatus); ?>
+                            </span>
+                            <span>
+                                <strong>
+                                    <?= $block->escapeHtml(__('Available Quantity')) ?> : 
+                                </strong>
+                                    <span class="child_qty"><?=$block->escapeHtml($helper->checkStock($childProduct['id'])->getQty()); ?>
+                                    </span>
+                            </span>
+                            
+                        </div>
+                    </div>
+                <?php endforeach ?>
+            </div>
+            <?php $productKitProducts = implode(",", $productKitProducts);?>
+            <input type="hidden" name="productkit_products" value="<?= $block->escapeHtmlAttr($productKitProducts)?>">
+            <input type="hidden" name="parent_product_id"  value="<?= $block->escapeHtmlAttr($product->getId());?>">
+        </div>
+    <?php } ?>
+<?php endif; ?>

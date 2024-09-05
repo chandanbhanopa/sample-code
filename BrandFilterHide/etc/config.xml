@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <helm_customer_brandfilter>
+            <general>
+                <helm_customer_brandfilter_customer_group></helm_customer_brandfilter_customer_group>
+            </general>
+        </helm_customer_brandfilter>
+    </default>
+</config>

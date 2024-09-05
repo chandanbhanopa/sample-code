@@ -1,0 +1,13 @@
+<?php $castrolFundOrderData = $block->getCastrolFundForAdmin();?>
+<div class="castrolfund">
+<?php if (!empty($castrolFundOrderData['used_castrol_fund_amount'])) : ?>
+    <div class="negotiable-quote-order-information">
+        <strong>
+            <?=$escaper->escapeHtml($castrolFundOrderData['label']) . ' Used: ' ?>
+        </strong>
+        <span><?=$block->escapeHtml(round($castrolFundOrderData['amount'], 2)); ?></span>
+    </div>
+<?php endif; ?>
+</div>
+
+

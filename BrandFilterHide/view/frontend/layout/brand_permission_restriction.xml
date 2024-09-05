@@ -1,0 +1,10 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+    <referenceContainer name="content">
+        <block class="Magento\Framework\View\Element\Template" name="needpermission.block" template="Helm_BrandFilterHide::permission.phtml"/>
+    </referenceContainer>
+    <referenceContainer name="footer" remove="true" />
+    <referenceContainer name="footer-container" remove="true" />
+    <referenceBlock name="sale.reorder.sidebar" remove="true"/>
+</body>
+</page>

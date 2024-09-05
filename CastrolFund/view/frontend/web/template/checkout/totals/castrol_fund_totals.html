@@ -1,0 +1,10 @@
+<!-- ko if: (isCastrolFundEnabled() && isUsingCastrolFunds()) -->
+<tr class="totals coop_fund_totals excl">
+    <th class="mark" scope="row">
+        <span class="label" data-bind="text: getTitle()"></span>
+    </th>
+    <td class="amount">
+        <span class="price" data-bind="text: getCastrolFund(), attr: {'data-th': getTitle()}"></span>
+    </td>
+</tr>
+<!-- /ko -->

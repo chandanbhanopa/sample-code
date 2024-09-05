@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Alpine_CoopFund
+ *
+ * @copyright   Copyright (c) 2021 Alpine Consulting, Inc
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="sidebar" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="summary" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="totals" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="castrol_fund_totals" xsi:type="array">
+                                                            <item name="component"  xsi:type="string">Helm_CastrolFund/js/checkout/totals/castrol_fund_totals</item>
+                                                            <item name="sortOrder" xsi:type="string">20</item>
+                                                            <item name="config" xsi:type="array">
+                                                                <item name="template" xsi:type="string">Helm_CastrolFund/checkout/totals/castrol_fund_totals</item>
+                                                                <item name="title" xsi:type="string" translate="true">CastrolFund</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                                <item name="cart_items" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="details" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="subtotal" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Magento_Tax/js/view/checkout/summary/item/details/subtotal</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="billing-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="payment" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="beforeMethods" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="castrol_fund" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">
+                                                                        Helm_CastrolFund/js/checkout/castrol_fund
+                                                                    </item>
+                                                                    <item name="displayArea" xsi:type="string">before-place-order</item>
+                                                                    <item name="sortOrder" xsi:type="string">1</item>
+                                                                    <item name="dataScope" xsi:type="string">checkoutcomments</item>
+                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                </item>
+                                                               <item name="coop_fund_message" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">
+                                                                        Helm_CastrolFund/js/checkout/castrol_fund_message
+                                                                    </item>
+                                                                    <item name="displayArea" xsi:type="string">before-place-order</item>
+                                                                    <item name="sortOrder" xsi:type="string">2</item>
+                                                                    <item name="dataScope" xsi:type="string">checkoutcomments</item>
+                                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

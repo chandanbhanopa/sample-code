@@ -1,0 +1,14 @@
+<?php
+/**
+ * Helm CastrolFund
+ *
+ */
+/** @var CoopFund $block */
+$isCastrolFundUsed = $block->getCastrolFundValue();
+?>
+<?php if ($isCastrolFundUsed) : ?>
+<tr>
+    <th><?= $escaper->escapeHtml(__("Castrol Funds")); ?></th>
+    <td><?= $escaper->escapeHtml($isCastrolFundUsed ? 'True': 'False'); ?></td>
+</tr>
+<?php endif;?>

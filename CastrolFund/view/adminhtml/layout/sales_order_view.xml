@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Alpine_CoopFund
+ *
+ * @copyright Copyright (c) 2021 Alpine Consulting, Inc (www.alpineinc.com)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="order_info">
+            <block class="Helm\CastrolFund\Block\Adminhtml\Order\View\CastrolFund"
+                   name="sales_order_view_castrol_fund_value"
+                   template="Helm_CastrolFund::order/view/castrol_fund.phtml" />
+        </referenceBlock>
+        <referenceContainer name="payment_additional_info">
+                <block class="Helm\CastrolFund\Block\Adminhtml\Order\View\CastrolFund"
+                   name="sales_order_view_order_detail"
+                   template="Helm_CastrolFund::order/view/castrol_fund_order_detail.phtml" />
+        </referenceContainer>
+    </body>
+</page>

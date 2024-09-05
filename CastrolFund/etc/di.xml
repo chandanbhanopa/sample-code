@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Logger Start -->
+    <type name="Helm\CastrolFund\Logger\Handler">
+       <arguments>
+           <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+       </arguments>
+    </type>
+    <type name="Helm\CastrolFund\Logger\CastrolFundLogger">
+       <arguments>
+           <argument name="name" xsi:type="string">Castrol_Fund_Log</argument>
+           <argument name="handlers"  xsi:type="array">
+               <item name="system" xsi:type="object">Helm\CastrolFund\Logger\Handler</item>
+           </argument>
+       </arguments>
+    </type>
+    <!-- Logger End -->
+
+    <!-- Interface Mapping for web apis -->
+
+    <preference 
+        for="Helm\CastrolFund\Api\CastrolFundInterface"
+        type="Helm\CastrolFund\Model\CastrolFunds"/>
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="save_territory_data"
+                type="Helm\CastrolFund\Plugin\OrderRepositoryUpdater"
+                sortOrder="100" />
+    </type>
+
+    <!-- <type name="\Magento\Customer\Controller\Account\LoginPost">
+        <plugin 
+          name="helm_castrolfund_loginpost" 
+          type="\Helm\CastrolFund\Plugin\GetTotalOrderByTerritory" 
+          sortOrder="100" />
+    </type> -->
+    <type name="Magento\Sales\Api\OrderManagementInterface">
+        <plugin name="after_cancel_order_operation"
+                type="Helm\CastrolFund\Plugin\UpdateCastrolFunds"/>
+    </type>
+    <type name="Alpine\OrderActions\Controller\Adminhtml\Item\Cancel">
+        <plugin name="after_cancel_order_item"
+                type="Helm\CastrolFund\Plugin\CancelItemAndRefundToCastrolFund"/>
+    </type>
+
+</config>

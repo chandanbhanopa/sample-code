@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+       <section id="helm_customer_brandfilter" translate="label" type="text" sortOrder="310" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Customer Brand Filter</label>
+            <tab>helm</tab>
+            <resource>Helm_BrandFilterHide::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="helm_customer_brandfilter_customer_group" translate="Module" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Customer Group</label>
+                    <comment>Select the customer group for granting access to the store</comment>
+                    <source_model>Helm\BrandFilterHide\Model\Config\Source\CustomerGroupOptions</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="hide_brand_switcher" translate="Module" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Brand Switcher For Groups</label>
+                    <comment>Only selected customer group can see the brand switcher.</comment>
+                    <source_model>Helm\BrandFilterHide\Model\Config\Source\CustomerGroupOptions</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
+

@@ -1,0 +1,11 @@
+<!-- ko if: isEnabled() && isLogin() && isAllowedForGroup()  -->
+<div class="field">
+    <input type="checkbox"
+        name="castrolfund_checkbox"
+        id="castrol_fund"
+        value="1"
+        data-bind='checked: checked, click: click, attr: { disabled: disabled }'
+    />
+    <label class="label" for="castrol_fund" data-bind="text: getTitle()" />
+</div>
+<!-- /ko -->

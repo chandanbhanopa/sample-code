@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Helm_CastrolFund
+ *
+ * @copyright Copyright (c) 2024 Helm, LLC
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="helm" translate="label" sortOrder="10">
+            <label>Helm</label>
+        </tab>
+        <section id="castrol_fund" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Castrol Fund</label>
+            <tab>helm</tab>
+            <resource>Helm_CastrolFund::config</resource>
+            <!-- Group General -->
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Castrol Fund</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="allowed_customer_groups" translate="label comment" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Allowed Customer Groups</label>
+                    <comment>Select customer groups, that will be allowed to use Castrol Funds</comment>
+                    <source_model>Magento\Customer\Model\Config\Source\Group</source_model>
+                </field>
+            </group>
+            <group id="checkout" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Checkout Label and Messages</label>
+                <field id="castrol_header_label" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header title</label>
+                    <comment>This message will display on top for the customers</comment>
+                </field>
+                <field id="castrol_fund_label" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Castrol Budget Fund Label</label>
+                    <comment>This label will display on the checkout (Castrol Budget Fund checkbox).</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

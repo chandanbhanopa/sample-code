@@ -1,0 +1,13 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:DataObject/etc/fieldset.xsd">
+  <scope id="global">
+    <fieldset id="sales_convert_quote">
+      <field name="is_applied_castrol_fund">
+        <aspect name="to_order" targetField="is_applied_castrol_fund" />
+      </field>
+      <field name="used_castrol_fund_amount">
+        <aspect name="to_order" targetField="used_castrol_fund_amount" />
+      </field>
+    </fieldset>
+  </scope>
+</config>

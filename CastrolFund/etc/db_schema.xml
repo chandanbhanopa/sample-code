@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales_order">
+        <column name="territory_number" xsi:type="varchar" nullable="true" length="255" comment="Territory Number" />
+        <column name="parent_territory_number" xsi:type="varchar" nullable="true" length="255" comment="Parent Territory Number" />
+        <column name="gl_number" xsi:type="varchar" nullable="true" length="255" comment="GL Number" />
+        <column name="used_castrol_fund_amount" xsi:type="decimal" nullable="true" scale="4" precision="20" comment="Used castrol fund amount" />
+        <column name="is_applied_castrol_fund" xsi:type="int" nullable="true" default="0" padding="2" comment="Is Applied Coop Fund" />
+    </table>
+    <table name="quote">
+        <column name="available_castrol_fund_amount" xsi:type="decimal" nullable="true" scale="4" precision="20" comment="Initial Balance for the customer" />
+        <column name="is_applied_castrol_fund" xsi:type="int" nullable="true" default="0" padding="2" comment="Is Applied Coop Fund" />
+        <column name="used_castrol_fund_amount" xsi:type="decimal" nullable="true" scale="4" precision="20" comment="Used castrol fund amount" />
+    </table>
+</schema>
